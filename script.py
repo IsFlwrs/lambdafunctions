@@ -15,4 +15,8 @@ between_markers = lambda text, begin, end: text[text.index(begin)+len(begin) if 
 best_stock = lambda data: max([[data[x],x] for x in data])[1]
 best_stock = lambda data: max(data, key=lambda x: data[x])
 
+# Determine the popularity of certain words in the text.
+popular_words = lambda text,words: (lambda text: {x:text.count(x) for x in words})(text.lower().split())
 
+# Find the TOP most expensive things in a dictionary
+bigger_price = lambda limit, data: sorted(data, key=lambda x: x['price'], reverse=True)[:limit]
